@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { urlV1 } from '@/api'
-import { MusicPlayer } from '@/hooks/interface'
-import { Song } from '@/api/interface'
-import { Track } from '@/stores/interface'
-const tableData = defineModel<Song[]>()
+import { urlV1 } from '@/api' // 获取音乐的url API
+import { MusicPlayer } from '@/hooks/interface' //接口
+import { Song } from '@/api/interface' // 接口
+import { Track } from '@/stores/interface'// 接口
+const tableData = defineModel<Song[]>() // 接受父组件传过来的数据 相当于props和emit的组合
 const AudioStore = useAudioStore()
 const router = useRouter()
 const { playSong } = inject('MusicPlayer') as MusicPlayer
-
 // 存储音乐并且播放
 const playMusic = async (row: Song) => {
   const existingIndex = AudioStore.trackList.findIndex(
@@ -62,6 +61,7 @@ const formatMillisecondsToTimes = (time: number) => {
         width: 100%;
         --el-table-border: none;
         --el-table-border-color: none;
+        /* 双击时触发音乐切换函数 */
       " @row-dblclick="playMusic" class="!text-xs !flex-1">
       <el-table-column prop="name" label="歌名">
         <template #default="{ row }">

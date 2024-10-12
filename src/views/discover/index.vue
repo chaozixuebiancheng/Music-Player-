@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { topPlaylist } from '@/api'
+import { topPlaylist } from '@/api' // 歌单（网友精选碟）API
 interface Playlist {
   id: number
   name: string
@@ -9,11 +9,11 @@ interface Playlist {
 const state = reactive({
   Playlist: [] as Playlist[],
 })
-
+ // 让具体的属性变为响应式
 const { Playlist } = toRefs(state)
 const router = useRouter()
 // 使用hook并传入必要的参数
-const observedElement = ref([])
+const observedElement = ref([]) // 获取歌单元素实例
 useIntersectionObserver(
   observedElement,
   {

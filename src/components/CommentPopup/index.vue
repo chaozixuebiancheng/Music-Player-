@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { Comment } from '@/api/interface'
 
-const drawer = defineModel()
+const drawer = defineModel() // 获取抽屉的状态
 defineProps({
   direction: {
     type: String as PropType<'rtl' | 'ltr' | 'ttb' | 'btt'>,
     default: 'rtl',
   },
+  // 获取评论的数据
   data: {
     type: Array as PropType<Comment[]>,
     default: () => [],
@@ -31,6 +32,7 @@ function handleIntersect(PageNum: number) {
 }
 </script>
 <template>
+  
   <el-drawer v-model="drawer" title="评论" :direction="direction" class="!w-[50%]">
     <div class="space-y-8">
       <div>

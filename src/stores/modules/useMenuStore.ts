@@ -1,4 +1,4 @@
-//设置播放器主题
+//左侧菜单当前所在的索引仓库
 
 
 import { defineStore } from 'pinia'

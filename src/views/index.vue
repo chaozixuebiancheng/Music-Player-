@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { cloudsearch } from '@/api'
-import { cloudsearchResult, PlaylistsResponse } from '@/api/interface'
+import { cloudsearch } from '@/api' // 导入云搜索函数
+import { cloudsearchResult, PlaylistsResponse } from '@/api/interface' // 导入接口
 const songListRef = ref()
 const state = reactive({
-  tableData: {} as cloudsearchResult,
-  SongList: {} as PlaylistsResponse,
+  tableData: {} as cloudsearchResult, // 单个音乐的搜索结果
+  SongList: {} as PlaylistsResponse,  // 歌单
 })
-
+// 让state中的属性也变为响应式
 const { tableData, SongList } = toRefs(state)
 
 onMounted(() => {
   Promise.all([
-    cloudsearch({ kw: '境界的彼方' }),
-    cloudsearch({ kw: '境界的彼方', type: 1000 }),
+    cloudsearch({ kw: '境界的彼方' }), // 获取单曲
+    cloudsearch({ kw: '境界的彼方', type: 1000 }), // 获取歌单
   ])
     .then(([result1, result2]) => {
       state.tableData = result1.result
@@ -22,7 +22,7 @@ onMounted(() => {
       console.error('Error occurred:', error)
     })
 })
-
+ // 滚动
 const progress = (type: 'back' | 'forward') => {
   const scrollLeft = songListRef.value.wrapRef.scrollLeft
   if (type == 'back') {

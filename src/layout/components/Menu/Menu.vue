@@ -5,7 +5,7 @@ import { userPlaylistRes } from '@/api/interface' // 导入定义歌单结构的
 import { MenuData } from './data' //菜单栏对象
 import { userPlaylist } from '@/api' // 获取用户歌单api
 import { Icon } from '@iconify/vue' // 获取图标
-const menuStore = useMenuStore() //播放器主题仓库
+const menuStore = useMenuStore() //左侧菜单当前所在的索引仓库
 const router = useRouter() 
 const userStore = useUserStore()
 const playlists = ref<userPlaylistRes[]>([]) //歌单
@@ -44,7 +44,7 @@ const handleKeyDown = (event: KeyboardEvent): void => {
   if (event.ctrlKey && event.key === 'q') {
     event.preventDefault()
     router.push('/theme')
-    menuStore.setMenuIndex('3-2')
+    menuStore.setMenuIndex('3-3')
   }
 }
 </script>
@@ -54,7 +54,8 @@ const handleKeyDown = (event: KeyboardEvent): void => {
   <aside
     class="w-64 dark:border-gray-600 h-full border-r box-border flex flex-col overflow-x-hidden"
   >
-    <div class="flex flex-col items-center p-4 gap-2">
+    <!-- 个人信息界面 -->
+    <!-- <div class="flex flex-col items-center p-4 gap-2">
       <span class="relative flex h-24 w-24 shrink-0">
         <img
           class="aspect-square h-full w-full rounded-full"
@@ -74,7 +75,7 @@ const handleKeyDown = (event: KeyboardEvent): void => {
       <h2 class="text-lg font-semibold text-gray-900 dark:text-white">
         Kuriyama Mirai Player
       </h2>
-    </div>
+    </div> -->
     <nav
       class="flex flex-col p-4 space-y-4 flex-1 h-full box-border overflow-x-hidden"
     >
@@ -110,7 +111,7 @@ const handleKeyDown = (event: KeyboardEvent): void => {
         </router-link>
       </div>
 
-      <!-- 下面的代码应该是歌单界面，但是加载不出来 -->
+      <!-- 登陆后将会显示我的歌单，但是由于未知原因显示不了-->
       <div class="w-full flex flex-col gap-1 overflow-x-hidden">
         <h3 class="text-xs font-semibold text-gray-500 dark:text-gray-400">
           我的歌单

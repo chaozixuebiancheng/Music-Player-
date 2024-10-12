@@ -1,3 +1,4 @@
+// 懒加载底层逻辑，判断元素是否在视口内
 interface Options {
     threshold?: number;
     root?: Element | null;
@@ -7,7 +8,7 @@ interface Options {
 }
 // eslint-disable-next-line no-unused-vars
 type Callback = (pageNum: number, pageSize: number) => void;
-
+// 参数（元素实例，，回调函数）
 export function useIntersectionObserver(
     elementRef: Ref<Element | undefined | Element[]>,
     {

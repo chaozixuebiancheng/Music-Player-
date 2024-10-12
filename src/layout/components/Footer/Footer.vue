@@ -1,11 +1,11 @@
 <!-- 底部音乐播放栏 -->
 
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
-import localhostSong from './components/localhostSong.vue' // 存放
+import { Icon } from '@iconify/vue' // 图标
+import localhostSong from './components/localhostSong.vue' // 存放历史记录
 import Volume from './components/volume.vue' //音量调节
-import { MusicPlayer } from '@/hooks/interface'
-import { PlayMode } from '@/enum'
+import { MusicPlayer } from '@/hooks/interface' //音乐播放状态相关的接口
+import { PlayMode } from '@/enum' //歌曲播放模式的枚举
 
 const {
   currentSong,
@@ -19,7 +19,7 @@ const {
   setPlayMode,
 } = inject('MusicPlayer') as MusicPlayer //从index.vue接受数据
 
-const Emit = defineEmits(['show']) // 从index.vue接受数据
+const Emit = defineEmits(['show']) // 向index.vue提供自定义事件
 
 // 格式化时间
 function formatTime(seconds: number): string {
@@ -68,7 +68,7 @@ function formatTime(seconds: number): string {
         </div>
       </div>
       <div class="flex-1 mx-4 flex gap-3 w-full items-center">
-        <!-- el-slider 是一个音乐的度量条 -->
+        <!-- el-slider 是一个音乐的度量条滑块 -->
         <el-slider v-model="currentTime" :step="1" :show-tooltip="false" @change="changeCurrentTime" :max="duration"
           class="w-full" size="small" />
         <div class="flex items-center gap-2 text-gray-500 text-xs dark:text-gray-400">

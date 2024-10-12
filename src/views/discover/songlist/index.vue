@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { topPlaylist, playlistCatList } from '@/api'
+import { topPlaylist, playlistCatList } from '@/api' // 歌单（网友精选碟）API 和歌单分类API
 interface Playlist {
   id: number
   name: string
@@ -12,11 +12,11 @@ interface Category {
   label: string
 }
 const state = reactive({
-  Playlist: [] as Playlist[],
-  CatList: [{ name: '全部', label: '全部' }] as Category[],
-  currentCat: ['全部'] as string[],
+  Playlist: [] as Playlist[], // 歌单列表
+  CatList: [{ name: '全部', label: '全部' }] as Category[], // 分类列表
+  currentCat: ['全部'] as string[], // 当前分类
 })
-
+// 让这些属性获得响应式
 const { currentCat, CatList, Playlist } = toRefs(state)
 
 const router = useRouter()
@@ -57,6 +57,7 @@ function catChange(e: []) {
     state.Playlist = playlists
   })
 }
+
 </script>
 <template>
   <div class="h-full w-full p-4">

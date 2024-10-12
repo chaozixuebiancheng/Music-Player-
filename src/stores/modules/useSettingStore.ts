@@ -11,10 +11,10 @@ import { SettingState } from '../interface'
 export const useSettingStore = defineStore({
     id: 'useSettingStore',
     state: (): SettingState => ({
-        isDrawerCover: true,
-        isOriginalParsed: true,
-        isRomaParsed: true,
-        isTranslatedParsed: true,
+        isDrawerCover: true,      // 抽屉封面背景
+        isOriginalParsed: true,   // 歌词
+        isRomaParsed: true,       // 罗马音
+        isTranslatedParsed: true, // 翻译
     }),
     actions: {
         setOriginalParsed(isOriginalParsed: boolean) {

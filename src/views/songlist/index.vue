@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { playlistDetail, commentPlaylist } from '@/api'
+import { playlistDetail, commentPlaylist } from '@/api' // 歌单详情和歌单评论API
 import { playlistDetailResponse } from '@/api/interface'
 import { Track } from '@/stores/interface'
 import { Comment } from '@/api/interface'
 const route = useRoute()
-const audioStore = useAudioStore()
+const audioStore = useAudioStore() // 使用歌曲缓存仓库
 const state = reactive({
   playlistData: {
     playlist: {
-      tracks: [],
+      tracks: [], // 未知
     },
   } as unknown as playlistDetailResponse,
-  commentListData: [] as Comment[],
-  drawer: false,
+  commentListData: [] as Comment[], // 存放评论
+  drawer: false, //该属性控制抽屉的显示与隐藏
 })
 const { playlistData, commentListData, drawer } = toRefs(state)
 
@@ -21,7 +21,7 @@ onMounted(() => {
     state.playlistData = res
   })
 })
-
+ // 格式化播放量，点赞，评论
 function formatNumber(num: number): string {
   if (num < 10000) {
     return num.toString() // 直接返回小于10000的数字
@@ -34,11 +34,11 @@ function formatNumber(num: number): string {
     return (num / 10000).toFixed(0) + '万' // 对于大于或等于100000的数字，直接显示为整数的万
   }
 }
-
+// 格式化日期
 function formattedDate(str: string) {
   return new Date(str).toLocaleString()
 }
-
+ // 获取歌单的评论
 const getCommentPlaylist = (pages: number = 1) => {
   commentPlaylist({ offset: pages, id: route.query.id as string }).then(
     (res) => {
@@ -46,7 +46,7 @@ const getCommentPlaylist = (pages: number = 1) => {
     }
   )
 }
-
+ // 展示评论抽屉
 const showDrawer = () => {
   state.drawer = true
   if (state.commentListData.length > 0) return
@@ -54,7 +54,7 @@ const showDrawer = () => {
     state.commentListData = res.comments
   })
 }
-
+ // 将当前歌单中的歌曲全部添加到缓存中
 const playMusic = () => {
   let newArr = playlistData.value.playlist.tracks.map((row) => {
     return {
@@ -68,6 +68,7 @@ const playMusic = () => {
       mv: row.mv as number,
     }
   })
+  // 添加歌曲缓存
   audioStore.addTrack(newArr as unknown as Track[] )
 }
 </script>

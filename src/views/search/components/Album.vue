@@ -12,6 +12,7 @@ interface Item {
   artists: Artist[]
 }
 let modelValue = defineModel<Item[]>()
+
 </script>
 <template>
   <section

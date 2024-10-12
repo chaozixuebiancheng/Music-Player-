@@ -51,6 +51,7 @@ export const useAudioStore = defineStore({
         setCurrentSonglyrics(Lyric: LyricData) {
             this.trackList[this.currentSongIndex as number].Lyric = Lyric
         },
+        // 添加歌曲缓存
         addTrack(param: Track | Track[]) {
             if (Array.isArray(param)) {
                 this.trackList = this.trackList.concat(param);
@@ -58,6 +59,7 @@ export const useAudioStore = defineStore({
                 this.trackList.push(param);
             }
         },
+        //将传入的歌曲添加到现有的歌曲列表中，并设置当前播放的歌曲为新添加的歌曲或者已存在的歌曲
         addTrackAndPlay(param: Track | Track[]) {
             let addedIndex = -1; // 用于记录新添加的歌曲索引
             let existingIndex = -1; // 用于记录已存在歌曲的索引

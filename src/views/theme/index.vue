@@ -11,7 +11,7 @@ interface ColorItem {
 }
 
 const themeStore = useThemeStore();
-const { switchDark, changePrimary } = useTheme();
+const { switchDark, changePrimary } = useTheme(); // 导入切换暗黑模式和修改主题颜色方法
 
 const state = reactive({
   colorList: [] as ColorItem[], // 使用类型注解定义颜色列表
@@ -25,7 +25,7 @@ const changePrimarys = (e: string) => {
   changePrimary(resultHex);
 };
 
-// 更改主题
+// 更改颜色
 function changeColor(color: string): void {
   themeStore.setPrimary(color);
   changePrimary(color);

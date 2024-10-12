@@ -2,7 +2,7 @@
 import { MusicPlayer } from '@/hooks/interface' // 导入音乐播放器
 const router = useRouter()
 
-const audioStore = useAudioStore() //歌曲缓存和其他配置
+const audioStore = useAudioStore() //歌曲缓存仓库
 
 const { playSong } = inject('MusicPlayer') as MusicPlayer //接受index.vue传输过来的数据
 

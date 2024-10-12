@@ -34,6 +34,7 @@ export const commentMV = <T>(params: CommentMVParams) => {
     const offset = ((params.offset || 1) - 1) * 30; // 如果没有提供 offset，默认使用 1
     return httpGet<T>(`/comment/mv?id=${params.id}&limit=${limit}&offset=${offset}`);
 };
+// 获取mvURL
 export const mvUrl = (id: number | string) => httpGet<ResultData>(`/mv/url?id=${id}`);
 // 获取用户歌单
 export const userPlaylist = <T>(params: Params) =>

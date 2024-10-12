@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import 'vue3-video-play/dist/style.css'
 import { videoPlay } from 'vue3-video-play'
-import { mvDetail, mvUrl, commentMV } from '@/api'
+import { mvDetail, mvUrl, commentMV } from '@/api' // 导入获取mv数据API，mvURLAPI，mv评论API
 import { MVDetail, CommentResponse } from './interface'
 const route = useRoute()
 
