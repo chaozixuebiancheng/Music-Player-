@@ -7,6 +7,10 @@ export default {
       animation: {
         float: 'float 4s ease-in-out infinite',
       },
+      spacing: {
+        '16': '4rem', // 64px
+        '112': '28rem'      // 456px
+      }
     },
   },
   plugins: [],
