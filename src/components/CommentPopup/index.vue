@@ -16,23 +16,21 @@ let props = defineProps({
 const Emit = defineEmits(['DIntersect'])
 // 每一项的高度
 let itemHeight = 76
-// 容器的高度
+// 内容区的高度
 let containerHeight = 456
-//获取容器的总高度
+//获取虚拟区的总高度
 const totalHeight = computed(() => {
   const totalItemHeight = props.data.length * itemHeight
   return totalItemHeight
 })
-// 设置可见起始索引和可见结束索引
+// 设置内容区起始索引和可见结束索引
 const visibleStart = ref(0)
 const visibleEnd = ref(6)
 // 监听滚动事件，设置可显示的索引
 function handleScroll(event:Event) {
   const scrollTop = (event.target as HTMLElement).scrollTop
-  // console.log(scrollTop)
   visibleStart.value = Math.floor(scrollTop/itemHeight)
   visibleEnd.value = Math.min(props.data.length - 1,Math.floor((scrollTop + containerHeight)/itemHeight))
-  // console.log(visibleStart.value,visibleEnd.value)
 }
 // 使用计算属性，计算出可以显示的列表
 const visibleComments = computed(() => {
@@ -56,9 +54,11 @@ watch(visibleEnd,(val) => {
           Share your thoughts and feedback on this article.
         </p>
       </div> -->
-      <!-- 这个容器内部，超出高度就可以滚动 -->
+      <!-- 这个容器内部，超出高度就可以滚动 可视区-->
       <div class=" h-112 overflow-y-auto" @scroll="handleScroll">
+        <!-- 虚拟区 -->
         <div :style="{ height: totalHeight + 'px', position: 'relative' }">
+          <!-- 内容区 -->
           <div :style="{ position: 'absolute', top: visibleStart * itemHeight + 'px' }" class="space-y-3">
   <div class="flex items-start gap-4 h-16" v-for="item in visibleComments" :key="item.commentId" >
     <span class="relative flex shrink-0 overflow-hidden  rounded-full h-10 w-10 border">
