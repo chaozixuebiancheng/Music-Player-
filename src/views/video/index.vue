@@ -2,15 +2,15 @@
 import 'vue3-video-play/dist/style.css'
 import { videoPlay } from 'vue3-video-play'
 import { mvDetail, mvUrl, commentMV } from '@/api' // 导入获取mv数据API，mvURLAPI，mv评论API
-import { MVDetail, CommentResponse } from './interface'
+import { MVDetail, CommentResponse } from './interface' // 导入接口
 const route = useRoute()
 
 const state = reactive({
-  mvUrls: '',
-  mvDetails: {} as MVDetail,
-  mvCommentsList: {} as CommentResponse,
+  mvUrls: '', // mv的url
+  mvDetails: {} as MVDetail, // mv的数据
+  mvCommentsList: {} as CommentResponse, // mv的评论列表
 })
-
+// 让解构的数据获得响应式
 const { mvUrls, mvDetails, mvCommentsList } = toRefs(state)
 
 const observedElement = ref([])

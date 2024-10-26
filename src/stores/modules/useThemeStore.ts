@@ -11,15 +11,16 @@ import { themeState } from '../interface'
 export const useThemeStore = defineStore({
     id: 'useThemeStore',
     state: (): themeState => ({
-        isDark: false,
-        primary: '#000000',
-        language: 'Chinese'
+        isDark: false, // 是否是暗黑模式
+        primary: '#000000', // 设置主色
+        language: 'Chinese' // 设置语言
     }),
     actions: {
         setDark(isDark: string | number | boolean) {
             this.isDark = isDark
         },
         setPrimary(primary: string) {
+            // console.log(primary)
             this.primary = primary
         },
         setLanguage(language: string) {

@@ -15,6 +15,7 @@ export const useTheme = () => {
 
     // 修改主题颜色
     const changePrimary = (val: string) => {
+        // console.log(val)
         if (!val) {
             val = "#409EFF";
             ElMessage({
@@ -23,7 +24,7 @@ export const useTheme = () => {
             });
         }
         themeStore.setPrimary(val);
-        // 颜色加深
+        // // 颜色加深
         document.documentElement.style.setProperty(
             "--el-color-primary-dark-2",
             `${getDarkColor(themeStore.primary, 0.1)}`,

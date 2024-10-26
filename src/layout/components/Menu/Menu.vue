@@ -26,6 +26,7 @@ watch(
         playlists.value = playlist
       })
     }
+    else playlists.value = []
   },
   {
     immediate: true,
@@ -55,27 +56,27 @@ const handleKeyDown = (event: KeyboardEvent): void => {
     class="w-64 dark:border-gray-600 h-full border-r box-border flex flex-col overflow-x-hidden"
   >
     <!-- 个人信息界面 -->
-    <!-- <div class="flex flex-col items-center p-4 gap-2">
+    <div class="flex flex-col items-center p-4 gap-2">
       <span class="relative flex h-24 w-24 shrink-0">
         <img
           class="aspect-square h-full w-full rounded-full"
           src="@/assets/gthub-avatar.png"
         />
       </span>
-      <a href="https://github.com/XiangZi7" target="_blank">
+      <a href="https://github.com/chaozixuebiancheng" target="_blank">
         <div
           class="flex items-center bg-black text-white gap-1 text-xs p-1 rounded-lg"
         >
           <img
             alt="GitHub User's stars"
-            src="https://img.shields.io/github/stars/XiangZi7?style=flat&logo=github&label=XiangZi&labelColor=%23000&color=%23000"
+            src="https://img.shields.io/github/stars/chaozixuebiancheng?style=flat&logo=github&label=Chaozi&labelColor=%2523000&color=%2523000"
           />
         </div>
       </a>
       <h2 class="text-lg font-semibold text-gray-900 dark:text-white">
         Kuriyama Mirai Player
       </h2>
-    </div> -->
+    </div>
     <nav
       class="flex flex-col p-4 space-y-4 flex-1 h-full box-border overflow-x-hidden"
     >
@@ -109,10 +110,9 @@ const handleKeyDown = (event: KeyboardEvent): void => {
             {{ item2.shortcut }}
           </span>
         </router-link>
-      </div>
-
-      <!-- 登陆后将会显示我的歌单，但是由于未知原因显示不了-->
-      <div class="w-full flex flex-col gap-1 overflow-x-hidden">
+      </div> 
+      <!-- 登陆后将会显示我的歌单-->
+      <div class="w-full flex flex-col gap-1 ">
         <h3 class="text-xs font-semibold text-gray-500 dark:text-gray-400">
           我的歌单
         </h3>

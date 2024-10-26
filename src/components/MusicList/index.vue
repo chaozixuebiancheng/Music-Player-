@@ -41,14 +41,13 @@ const playMusic = async (row: Song) => {
 
 const downLoadMusic = (row: Song) => {
   console.log('🚀 => row:', row)
-  // urlV1(row.id).then(({ data }) => {
-  //   console.log(data[0].url)
-  //   const musicUrl = data[0].url
-  //   const link = document.createElement('a')
-  //   link.href = musicUrl
-  //   link.setAttribute('download', row.name)
-  //   link.click()
-  // })
+  urlV1(row.id).then(({ data }) => {
+    const musicUrl = data[0].url
+    const link = document.createElement('a')
+    link.href = musicUrl
+    link.setAttribute('download', row.name)
+    link.click()
+  })
 }
 
 const formatMillisecondsToTimes = (time: number) => {
@@ -114,3 +113,4 @@ const formatMillisecondsToTimes = (time: number) => {
     </el-table>
   </div>
 </template>
+

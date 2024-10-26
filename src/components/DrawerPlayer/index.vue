@@ -14,13 +14,13 @@ import { commentMusic } from '@/api'
 const userStore = useUserStore()
 
 const state = reactive({
-  direction: 'ttb',
-  drawer: false, //显示
-  commentListData: [] as Comment[],
-  commenDrawer: false,
-  commenTotal: 0,
+  direction: 'ttb', // 抽屉的方向,上
+  drawer: false, //显示状态
+  commentListData: [] as Comment[], // 评论列表数据
+  commenDrawer: false, // 评论显示状态
+  commenTotal: 0, //评论的总数
 })
-// 使用toRefs将对象的每个属性都结构为响应式属性
+// 使用toRefs将对象的每个属性都解构为响应式属性
 const { direction, drawer, commentListData, commenDrawer, commenTotal } =
   toRefs(state)
 
@@ -39,13 +39,13 @@ const {
   scrollStyle,
   setPlayMode,
 } = inject('MusicPlayer') as MusicPlayer
-
+// 导入抽屉设置仓库
 const SettingStore = useSettingStore()
 
 const show = () => {
   state.drawer = true
-  Loadlyrics()
-  getCommentPlaylist()
+  Loadlyrics() //加载歌词
+  getCommentPlaylist() // 获取评论
 }
 
 // 格式化时间
@@ -81,7 +81,7 @@ const showDrawer = () => {
     state.commenTotal = res.total
   })
 }
-
+// 处理评论数量显示
 function formatNumber(num: number): string {
   if (num < 10000) {
     return num.toString() // 直接返回小于10000的数字
@@ -97,21 +97,22 @@ function formatNumber(num: number): string {
 // 获取评论区
 const getCommentPlaylist = (pages: number = 1) => {
   // 如果当前有评论，返回
-  if (state.commentListData.length > 0) return
+  // if (state.commentListData.length > 0) return
+  // console.log('获取新的数据了' + pages)
   //调用获取评论api
   commentMusic({ offset: pages, id: currentSong.value.id }).then((res) => {
     state.commentListData = state.commentListData.concat(res.comments)
     state.commenTotal = res.total
   })
 }
-
+// 播放下一首歌曲
 function handlePlayNext() {
   state.commentListData = []
   state.commenTotal = 0
   playNext()
   getCommentPlaylist(1)
 }
-
+// 播放上一首歌曲
 function handlePlayPrevious() {
   state.commentListData = []
   state.commenTotal = 0
@@ -120,9 +121,11 @@ function handlePlayPrevious() {
 }
 
 onMounted(() => {
+  // 更新时间
   setInterval(updateTime, 1000) as unknown as number
 })
 defineExpose({
+  // 暴漏方法给footer
   show,
 })
 </script>
@@ -153,7 +156,7 @@ defineExpose({
             <icon-material-symbols:wifi />
             <icon-ic:baseline-battery-charging-80 />
           </div>
-
+          <!-- 如果当前处于登陆状态,则显示自己的头像,否则使用默认头像 -->
           <el-avatar v-if="userStore.userInfo && userStore.userInfo.userId" :src="userStore.userInfo.avatarUrl"
             class="mr-2" shape="circle" :size="32" />
           <el-avatar v-else src="https://primefaces.org/cdn/primevue/images/avatar/asiyajavayant.png" class="mr-2"
@@ -228,6 +231,7 @@ defineExpose({
         </div>
         <div class="flex-[50%] max-w-[50%] md:flex hidden h-full items-center justify-center">
           <template v-if="lyricsData.lines.length > 0">
+            <!-- 歌词部分 -->
             <div class="items-center justify-center flex h-full">
               <el-scrollbar class="flex items-center justify-center w-full"
                 wrap-class="mask-gradient w-full text-center !h-[600px]" style="--scroll-shadow-size: 40px">

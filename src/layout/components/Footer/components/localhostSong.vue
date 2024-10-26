@@ -42,7 +42,6 @@ const playMusic = (id: number | string) => {
                 </p>
               </div>
             </div>
-
             <div class="flex items-center">
               <el-button type="primary" text circle @click="playMusic(song.id)">
                 <icon-mingcute:play-circle-line class="text-lg text-gray-500" />

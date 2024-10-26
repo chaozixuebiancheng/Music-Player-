@@ -49,7 +49,7 @@ export function parseLyrics(lyricString: string): LyricLine[] {
     const parsedLines: LyricLine[] = [];
 
     lines.forEach((line) => {
-        const matches = [...line.matchAll(/\[(\d{2}):(\d{2})\.(\d{2,3})\]/g)];
+        const matches = [...line.matchAll(/\[(\d{2}):(\d{2})\.(\d{2,3})\]/g)]; // 保留时间戳
         // const matches = [...line.matchAll(/\[(\d{2}):(\d{2})\.(\d{2,3})\]/g)];
         const text = line.replace(/\[.*?\]/g, '').trim(); // 去除时间戳部分，保留歌词文本
 
@@ -66,11 +66,12 @@ export function parseLyrics(lyricString: string): LyricLine[] {
             });
         }
     });
-
+    // console.log(parsedLines[0].time)
     return parsedLines;
 }
 // parseAndMergeLyrics 函数，它的任务是解析歌词、翻译和罗马音
 export function parseAndMergeLyrics(lyrics: LyricsResponse): LyricData {
+    // 原歌词的用户，翻译歌词的用户，原歌词对象，包含翻译歌词的对象，包含罗马音歌词的对象
     const { lyricUser, transUser, lrc, tlyric, romalrc } = lyrics;
 
     // 解析原歌词、翻译歌词和罗马音歌词

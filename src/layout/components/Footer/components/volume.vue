@@ -8,6 +8,7 @@ const { setVolume, volume } = inject('MusicPlayer') as MusicPlayer
     <el-button text circle>
       <icon-bi:volume-up />
     </el-button>
+    <!-- 这是一个滑动条 -->
     <el-slider v-model="volume" :show-tooltip="false" @change="setVolume" class="!w-24" size="small" />
   </div>
 </template>

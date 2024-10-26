@@ -5,7 +5,7 @@ const dialogVisible = defineModel<boolean>()
 function closeLoginModal() {
   dialogVisible.value = false
 }
-
+// 获取二维码图片url和二维码当前状态
 const { qrImgUrl, qrStatus } = useLoginQr(closeLoginModal)
 </script>
 <template>

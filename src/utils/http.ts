@@ -8,9 +8,9 @@ import NProgress from '@/config/nprogress'
 
 
 const instance: AxiosInstance = axios.create({
-    baseURL: import.meta.env.VITE_APP_BASE_API,
-    timeout: 100000,
-    withCredentials: true,
+    baseURL: import.meta.env.VITE_APP_BASE_API, // 基础的url
+    timeout: 100000, // 请求的超时时间
+    withCredentials: true, //允许跨域请求时携带cookies
 })
 
 // 请求拦截器
@@ -23,8 +23,8 @@ instance.interceptors.request.use(
         }
         // 添加或修改params
         Object.assign(config.params, {
-            timestamp: Date.now(),
-            realIP: "116.25.146.177",
+            timestamp: Date.now(), // 该属性是唯一的，为了每次请求都获取资源，而不是使用缓存
+            realIP: "116.25.146.177", // 真实ip地址，好像可以随便设置
         });
         return config
     },

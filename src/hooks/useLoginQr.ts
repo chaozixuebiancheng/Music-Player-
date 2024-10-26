@@ -1,8 +1,8 @@
 import {
-    loginQrKey,
-    loginQrCreate,
-    loginQrCheck,
-    loginStatus,
+    loginQrKey, // 二维码key生成接口
+    loginQrCreate, // 二维码生成接口
+    loginQrCheck, // 二维码检测扫码状态接口
+    loginStatus, // 登录状态接口
 } from "@/api";
 import { QrCallback, ResLoginStatus } from "@/hooks/interface";
 
@@ -23,7 +23,7 @@ export function useLoginQr(qrCallback: QrCallback) {
         }
     };
 
-    // 根据 key 创建二维码的方法
+    // 根据 获取到的key 创建二维码的方法
     const createQrCode = async () => {
         try {
             const key = await fetchQrKey();
@@ -70,7 +70,7 @@ export function useLoginQr(qrCallback: QrCallback) {
     const startPolling = () => {
         intervalId = setInterval(() => {
             checkQrStatus();
-        }, 3000); // 每1秒钟轮询一次状态
+        }, 3000); // 每3秒钟轮询一次状态
     };
 
     // 停止轮询二维码的方法

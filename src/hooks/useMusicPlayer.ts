@@ -1,10 +1,11 @@
 // 播放模式枚丽数
-import { PlayMode } from '@/enum'
-import { Track } from '@/stores/interface';
-import { urlV1, lyric } from '@/api'
-import { ElNotification } from 'element-plus'
-import { LyricData } from '@/utils/parseLyrics'
+import { PlayMode } from '@/enum'  // 播放模式
+import { Track } from '@/stores/interface'; // 导入接口`
+import { urlV1, lyric } from '@/api' // 导入获取音乐url和歌词API
+import { ElNotification } from 'element-plus' // 通知消息
+import { LyricData } from '@/utils/parseLyrics' // 歌词贡献者信息的接口
 export function useMusicPlayer() {
+    // 歌曲缓存仓库
     const audioStore = useAudioStore();
     // 计算属性，用来获取当前播放的歌曲
     const currentSong = computed(() => audioStore.trackList[audioStore.currentSongIndex as number]);
@@ -30,7 +31,7 @@ export function useMusicPlayer() {
     const lyricTranslateY = ref<number>(0); // 用于控制歌词偏移的 translateY 值
     const containerHeight = 600; // 歌词容器的高度
 
-    // EQ相关的响应式变量
+    // EQ相关的响应式变量 已弃用
     const eqSettings = ref({
         bass: 0, // 低音
         mid: 0,  // 中音
@@ -40,7 +41,9 @@ export function useMusicPlayer() {
     // 在组件挂载时添加事件监听器
     onMounted(() => {
         audio.src = currentSong.value.source
+
         audio.ontimeupdate = () => {
+            // console.log('时间变化了')
             currentTime.value = audio.currentTime;
         };
 
@@ -61,6 +64,7 @@ export function useMusicPlayer() {
         }
     });
 
+    // 处理错误的函数
     const handleAudioError = async () => {
         if (!audio.error) return;
 
@@ -92,6 +96,7 @@ export function useMusicPlayer() {
                 lyricsData.value = currentSong.value.Lyric
             } else {
                 const result = await lyric(currentSong.value.id); // 调用 API 获取歌词
+                // console.log(result)
                 lyricsData.value = parseAndMergeLyrics(result)
                 // 缓存歌词
                 audioStore.setCurrentSonglyrics(lyricsData.value)

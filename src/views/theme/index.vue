@@ -19,21 +19,22 @@ const state = reactive({
 
 const { colorList } = toRefs(state);
 
-// 更改主题
+// 利用调色板更改颜色
 const changePrimarys = (e: string) => {
   const resultHex = rgbaToHex(e);
+  // console.log(resultHex)
   changePrimary(resultHex);
 };
 
 // 更改颜色
 function changeColor(color: string): void {
-  themeStore.setPrimary(color);
+  // themeStore.setPrimary(color);
   changePrimary(color);
 }
 
 // 重置
 const reset = (): void => {
-  themeStore.setPrimary('#000000');
+  // themeStore.setPrimary('#000000');
   changePrimary('#000000');
 };
 
@@ -48,11 +49,18 @@ function rgbaToHex(rgba: string): string {
   if (!match) {
     throw new Error('Invalid RGBA string');
   }
+  console.log(match)
   const r = parseInt(match[1], 10);
   const g = parseInt(match[2], 10);
   const b = parseInt(match[3], 10);
-  const hex = ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-  return `#${hex}`;
+  // console.log(r,g,b)
+  const toHex = (value: number) => {
+    const hex = value.toString(16);
+    return hex.length === 1 ? '0' + hex : hex; // 确保每个分量都是两位
+  };
+  // const hex = ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+  // return `#${hex}`;
+  return `#${toHex(r)}${toHex(g)}${toHex(b)}`
 }
 
 onMounted(() => {
@@ -63,6 +71,7 @@ onMounted(() => {
     state.colorList = data;
   });
 });
+
 </script>
 <template>
   <div class="w-full">

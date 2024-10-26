@@ -18,6 +18,7 @@ export const cloudsearch = (params: SearchParams) => {
         type: type
     });
 };
+
 //获取音乐连接
 export const urlV1 = (id: number | string) =>
     httpGet<ResultData>(`song/url/v1?id=${id}&level=exhigh`);

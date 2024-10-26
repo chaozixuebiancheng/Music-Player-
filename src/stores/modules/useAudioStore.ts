@@ -63,7 +63,7 @@ export const useAudioStore = defineStore({
         addTrackAndPlay(param: Track | Track[]) {
             let addedIndex = -1; // 用于记录新添加的歌曲索引
             let existingIndex = -1; // 用于记录已存在歌曲的索引
-
+                
             const addTrack = (track: Track) => {
                 existingIndex = this.trackList.findIndex(existingTrack => existingTrack.id === track.id);
 

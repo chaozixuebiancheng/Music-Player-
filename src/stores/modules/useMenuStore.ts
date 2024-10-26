@@ -17,7 +17,6 @@ export const useMenuStore = defineStore({
         setMenuIndex(menuIndex: string) {
             this.menuIndex = menuIndex
         },
-
     },
     persist: piniaPersistConfig('MenuStore'),
 })
