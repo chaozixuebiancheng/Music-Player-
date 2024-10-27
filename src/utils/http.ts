@@ -24,7 +24,7 @@ instance.interceptors.request.use(
         // 添加或修改params
         Object.assign(config.params, {
             timestamp: Date.now(), // 该属性是唯一的，为了每次请求都获取资源，而不是使用缓存
-            realIP: "116.25.146.177", // 真实ip地址，好像可以随便设置
+            realIP: "116.25.146.177", // 真实ip地址
         });
         return config
     },
@@ -60,17 +60,3 @@ export const httpPost = <T>(
     data?: object,
     header?: object
 ): Promise<T> => instance.post(url, data, header)
-
-// 封装upload方法
-export const httpUpload = <T>(
-    url: string,
-    formData: FormData,
-    header?: object
-): Promise<T> => {
-    return instance.post(url, formData, {
-        headers: {
-            'Content-Type': 'multipart/form-data',
-            ...header,
-        },
-    })
-}

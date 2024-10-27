@@ -15,7 +15,6 @@ export function hexToRgb(str: string): number[] | void {
     const rgb: number[] = hexs.map((h) => parseInt(h, 16));
     return rgb;
 }
-
 /**
  * rgb颜色转Hex颜色
  * @param r 代表红色
@@ -32,7 +31,6 @@ export function rgbToHex(r: number, g: number, b: number): string | void {
     const hexs: string[] = [r, g, b].map((n) => n.toString(16).padStart(2, "0"));
     return `#${hexs.join("")}`;
 }
-
 /**
  * 加深颜色值
  * @param color 颜色值字符串

@@ -7,7 +7,7 @@ const errorMessages: Record<number, string> = {
   [MediaError.MEDIA_ERR_DECODE]: "解码过程中发生错误。",
   [MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED]: "音频格式不支持。",
 };
-
+ 
 /**
  * 获取播放器错误消息
  * @param {MediaError} error - audio元素的错误对象

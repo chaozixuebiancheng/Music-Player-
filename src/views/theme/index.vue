@@ -58,8 +58,6 @@ function rgbaToHex(rgba: string): string {
     const hex = value.toString(16);
     return hex.length === 1 ? '0' + hex : hex; // 确保每个分量都是两位
   };
-  // const hex = ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-  // return `#${hex}`;
   return `#${toHex(r)}${toHex(g)}${toHex(b)}`
 }
 
