@@ -45,7 +45,7 @@ const performSearch = async (
 ) => {
   // 执行云搜索函数
   const { result } = await cloudsearch({ kw, type, limit, offset })
-
+  // console.log(state.activeName)
   switch (state.activeName) {
     case '1':
       state.tableData = state.tableData = result

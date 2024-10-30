@@ -37,7 +37,7 @@ export function useIntersectionObserver(
                     // 检查当前元素是否为数组中的最后一个元素
                     const isLastElement = isLastElementMap.get(element) || false;
                     if (isLastElement) {
-                        console.log('要触发回调函数了')
+                        // console.log('要触发回调函数了')
                         callback(pageNum.value, pageSize);
                         pageNum.value++; // 只有最后一个元素触发时页码自增
                         // 如果需要，可以在这里取消该元素的观察

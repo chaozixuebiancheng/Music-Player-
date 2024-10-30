@@ -64,7 +64,7 @@ function userLogout() {
         <el-avatar :src="userStore.userInfo.avatarUrl" class="mr-2" shape="circle" :size="32" />
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item>Action 1</el-dropdown-item>
+            <el-dropdown-item>{{ userStore.userInfo.nickname || 'Action1' }}</el-dropdown-item>
             <el-dropdown-item divided>
               <el-popconfirm title="确定要退出登录?" @confirm="userLogout">
                 <template #reference>退出</template>

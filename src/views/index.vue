@@ -22,8 +22,9 @@ onMounted(() => {
       console.error('Error occurred:', error)
     })
 })
- // 滚动
+// 滚动
 const progress = (type: 'back' | 'forward') => {
+  console.log(songListRef.value)
   const scrollLeft = songListRef.value.wrapRef.scrollLeft
   if (type == 'back') {
     songListRef.value.setScrollLeft(scrollLeft - 150)
@@ -53,7 +54,7 @@ const progress = (type: 'back' | 'forward') => {
           <el-image :src="item.coverImgUrl + '?param=160y160'" :alt="item.name" class="w-28 h-28 rounded-lg" lazy />
           <span class="text-xs text-center line-clamp-1" :title="item.name">{{
             item.name
-          }}</span>
+            }}</span>
         </router-link>
         <button
           class="absolute top-1/2 -translate-y-1/2 rounded-full bg-background/50 p-2 text-muted-foreground transition-colors duration-300 hover:bg-background/75"

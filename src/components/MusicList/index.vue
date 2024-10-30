@@ -53,6 +53,7 @@ const downLoadMusic = (row: Song) => {
 const formatMillisecondsToTimes = (time: number) => {
   return formatMillisecondsToTime(time)
 }
+
 </script>
 <template>
   <div class="h-full w-full box-border flex flex-1 flex-col overflow-x-hidden overflow-auto">
