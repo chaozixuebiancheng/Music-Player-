@@ -66,7 +66,7 @@ const handleKeyDown = (event: KeyboardEvent): void => {
         </div>
       </a>
       <h2 class="text-lg font-semibold text-gray-900 dark:text-white">
-        Kuriyama Mirai Player
+        Music Player
       </h2>
     </div>
     <nav class="flex flex-col p-4 space-y-4 flex-1 h-full box-border overflow-x-hidden">

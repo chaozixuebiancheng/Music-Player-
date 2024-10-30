@@ -39,7 +39,7 @@ const visibleComments = computed(() => {
 // 观测是否请求新的数据
 let pageNum = 1
 watch(visibleEnd,(val) => {
-  if(val === (pageNum-1)*30+28) 
+  if(val >= (pageNum-1)*30+28) 
 {
   pageNum++
   Emit('DIntersect',pageNum)
@@ -47,7 +47,7 @@ watch(visibleEnd,(val) => {
 })
 </script>
 <template>
-  <el-drawer v-model="drawer" :title="'评论'+  visibleStart+visibleEnd" :direction="direction" class="!w-[50%]">
+  <el-drawer v-model="drawer" :direction="direction" class="!w-[50%]">
       <!-- <div>
         <h2 class="text-3xl font-bold">Comments</h2>
         <p class="text-muted-foreground">
@@ -70,7 +70,7 @@ watch(visibleEnd,(val) => {
         <div class="text-xs text-muted-foreground">{{ item.timeStr }}</div>
         <div class="text-xs text-muted-foreground">IP: {{ item.ipLocation.location }}</div>
       </div>
-      <p class="text-sm">{{ item.content }}</p>
+      <p class="text-sm">{{ item.content.slice(0,68) }}</p>
     </div>
   </div>
   </div>

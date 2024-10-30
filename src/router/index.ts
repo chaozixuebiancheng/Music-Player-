@@ -61,32 +61,7 @@ const router = createRouter({
           path: '/theme',
           name: 'theme',
           component: () => import('@/views/theme/index.vue')
-        },
-        {
-          path: '/ui1',
-          name: 'ui1',
-          component: () => import('@/views/ui1/index.vue')
-        },
-        {
-          path: '/ui2',
-          name: 'ui2',
-          component: () => import('@/views/ui2/index.vue')
-        },
-        {
-          path: '/ui3',
-          name: 'ui3',
-          component: () => import('@/views/ui3/index.vue')
-        },
-        {
-          path: '/ui3',
-          name: 'ui3',
-          component: () => import('@/views/ui3/index.vue')
-        },
-        {
-          path: '/eq',
-          name: 'eq',
-          component: () => import('@/views/eq/index.vue')
-        },
+        }
       ]
     },
   ]

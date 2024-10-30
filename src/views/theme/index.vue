@@ -9,7 +9,6 @@ interface ColorItem {
   name: string;
   pinyin: string;
 }
-
 const themeStore = useThemeStore();
 const { switchDark, changePrimary } = useTheme(); // 导入切换暗黑模式和修改主题颜色方法
 
@@ -67,7 +66,7 @@ onMounted(() => {
     url: 'https://mock.mengxuegu.com/mock/634f6425369a770d74bbf7b9/example/colorsList',
   }).then(({ data }: { data: ColorItem[] }) => {
     state.colorList = data;
-  });
+  })
 });
 
 </script>

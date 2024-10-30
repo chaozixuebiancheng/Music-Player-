@@ -41,21 +41,6 @@ function userLogout() {
             </template>
           </el-input>
         </div>
-        <!-- 关于我的github信息 -->
-        <!-- <div class="about-me flex gap-2 app-region-no-drag">
-          <a href="https://github.com/XiangZi7/KM-Music-Player" target="_blank">
-            <div class="flex items-center bg-black text-white gap-1 text-xs p-1 rounded-lg">
-              <img alt="GitHub Repo stars"
-                src="https://img.shields.io/github/stars/XiangZi7/KM-Music-Player?style=flat&logo=github&label=Kuriyama%20Mirai%20Player&labelColor=%23000&color=%23000" />
-            </div>
-          </a>
-          <a href="https://github.com/chaozixuebiancheng" target="_blank">
-            <div class="flex items-center bg-black text-white gap-1 text-xs p-1 rounded-lg">
-              <img alt="GitHub User's stars"
-                src="https://img.shields.io/github/stars/XiangZi7?style=flat&logo=github&label=XiangZi&labelColor=%23000&color=%23000" />
-            </div>
-          </a>
-        </div> -->
       </div>
     </div>
 
