@@ -1,6 +1,6 @@
 # Music-Player 
 
-![image](这里使用提交后生成的链接就行)
+![image](https://github.com/chaozixuebiancheng/Music-Player-/blob/master/public/%E6%BC%94%E7%A4%BA.png)
 
 ### 介绍 📖
 

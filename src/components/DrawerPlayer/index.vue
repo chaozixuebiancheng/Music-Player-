@@ -73,7 +73,7 @@ function updateTime(): void {
 }
 
 // 打开评论抽屉
-const showDrawer = () => {
+const showDrawer = () => {s
   state.commenDrawer = true
   if (state.commentListData.length > 0) return
   commentMusic({ offset: 1, id: currentSong.value.id }).then((res) => {
