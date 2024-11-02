@@ -17,7 +17,7 @@ const instance: AxiosInstance = axios.create({
 instance.interceptors.request.use(
     (config: InternalAxiosRequestConfig) => {
         // 开启进度条
-        console.log(import.meta.env.VITE_APP_BASE_API)
+        // console.log(import.meta.env.VITE_APP_BASE_API)
         NProgress.start()
         if (config.params === undefined) {
             config.params = {};
