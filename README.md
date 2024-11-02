@@ -15,7 +15,7 @@ Music-Player  是一款基于 Vue
 ### 在线预览 👀
 
 - [GitHub Pages](https://github.com/chaozixuebiancheng/Music-Player-)
-- [Vercel 预览](这里等待填充) (可能需要魔法)
+- [Vercel 预览](https://music-player-ne1mirb4b-chaoges-projects.vercel.app)[需要魔法]
 
 ### 代码仓库 ⭐
 
@@ -34,25 +34,10 @@ Music-Player  是一款基于 Vue
 
 - Clone
 
-# Github
-修改.env的VITE_APP_BASE_API
-
-# 本地环境接口地址
-VITE_APP_BASE_API = '你的网易云接口地址'
-
-启动开发服务器
-
-启动本地开发服务器，为你提供实时预览：
-
 文档说明
 
 你可以查阅 [网易云音乐 API 文档](https://neteasecloudmusicapi.vercel.app/#/) 以
-获取更多信息和接口使用说明（可能需要魔法上网）。
-
-### 项目后台接口 🧩
-
-- [https://neteasecloudmusicapi.vercel.app/#/](https://neteasecloudmusicapi.vercel.app/#/)
-  （可能需魔法上网）
+获取更多信息和接口使用说明
 
 ### 常见问题 (FAQ) ❓
 
