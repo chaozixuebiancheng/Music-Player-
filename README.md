@@ -15,7 +15,7 @@ Music-Player  是一款基于 Vue
 ### 在线预览 👀
 
 - [GitHub Pages](https://github.com/chaozixuebiancheng/Music-Player-)
-- [Vercel 预览](https://music-player-ne1mirb4b-chaoges-projects.vercel.app)[需要魔法]
+- [预览](http:39.106.133.149:3777)
 
 ### 代码仓库 ⭐
 
